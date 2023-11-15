@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.unoesc.desafiofullstack.model.Contato;
-import br.edu.unoesc.desafiofullstack.model.Pessoa;
 import br.edu.unoesc.desafiofullstack.service.ContatoService;
 import jakarta.validation.Valid;
 

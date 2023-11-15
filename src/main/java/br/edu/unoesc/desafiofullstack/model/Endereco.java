@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Endereco {
@@ -18,11 +19,22 @@ public class Endereco {
 	@JoinColumn(name = "codigo_pessoa", nullable = false)
 	private Pessoa pessoa;
 
+	@NotBlank(message = "CEP é obrigatório")
 	private String cep;
+
+	@NotBlank(message = "Logradouro é obrigatório")
 	private String logradouro;
+
+	@NotBlank(message = "Número é obrigatório")
 	private String numero;
+
+	@NotBlank(message = "Bairro é obrigatório")
 	private String bairro;
+	
+	@NotBlank(message = "Município é obrigatório")
 	private String municipio;
+
+	@NotBlank(message = "Estado é obrigatório")
 	private String estado;
 
 	public Endereco() {
