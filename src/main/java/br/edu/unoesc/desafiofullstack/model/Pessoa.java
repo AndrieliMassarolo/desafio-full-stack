@@ -2,10 +2,17 @@ package br.edu.unoesc.desafiofullstack.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Pessoa {
@@ -13,19 +20,28 @@ public class Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
+
+	@CPF(message = "CPF inválido")
 	private String cpf;
+
+	@NotNull(message = "Data de Nascimento é obrigatória")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
-	private String sexo;
+
+	@NotNull(message = "Sexo é obrigatório")
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
 
 	public Pessoa() {
 	}
 
-	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String sexo) {
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento, Sexo sexo) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
+		this.setSexo(sexo);
 	}
 
 	public Long getCodigo() {
@@ -60,11 +76,11 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 
