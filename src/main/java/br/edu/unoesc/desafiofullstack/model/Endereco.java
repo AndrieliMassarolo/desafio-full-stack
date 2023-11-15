@@ -25,6 +25,20 @@ public class Endereco {
 	private String municipio;
 	private String estado;
 
+	public Endereco() {
+	}
+
+	public Endereco(Pessoa pessoa, String cep, String logradouro, String numero, String bairro,
+			String municipio, String estado) {
+		this.pessoa = pessoa;
+		this.cep = cep;
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.bairro = bairro;
+		this.municipio = municipio;
+		this.estado = estado;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}

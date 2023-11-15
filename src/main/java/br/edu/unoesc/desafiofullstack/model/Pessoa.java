@@ -18,6 +18,16 @@ public class Pessoa {
 	private LocalDate dataNascimento;
 	private String sexo;
 
+	public Pessoa() {
+	}
+
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String sexo) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}

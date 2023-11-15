@@ -21,6 +21,15 @@ public class Contato {
 	private String telefone;
 	private String email;
 
+	public Contato() {
+	}
+
+	public Contato(Pessoa pessoa, String telefone, String email) {
+		this.pessoa = pessoa;
+		this.telefone = telefone;
+		this.email = email;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}
