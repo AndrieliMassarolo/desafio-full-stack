@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Contato {
@@ -15,10 +17,13 @@ public class Contato {
 	private Long codigo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo", insertable = false, updatable = false)
+	@JoinColumn(name = "codigo_pessoa", nullable = false)
 	private Pessoa pessoa;
 
+	@NotBlank(message = "Telefone é obrigatório")
 	private String telefone;
+	
+	@Email(message = "E-mail é obrigatório")
 	private String email;
 
 	public Contato() {

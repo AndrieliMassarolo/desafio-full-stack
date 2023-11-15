@@ -12,9 +12,8 @@
 <body>
 	<main class="my-5">
 
-		<div class="container" th:switch="${pessoas}">
-			<h2 th:case="null">Nenhuma pessoa cadastrada!</h2>
-			<div class="table-responsive" th:case="*">
+		<div class="container">
+			<div class="table-responsive">
 				<h2>Cadastro de Pessoas</h2>
 				<table class="table table-striped table-hover table-bordered">
 					<thead>

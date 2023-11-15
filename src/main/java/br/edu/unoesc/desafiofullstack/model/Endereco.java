@@ -15,7 +15,7 @@ public class Endereco {
 	private Long codigo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo", insertable = false, updatable = false)
+	@JoinColumn(name = "codigo_pessoa", nullable = false)
 	private Pessoa pessoa;
 
 	private String cep;
