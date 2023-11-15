@@ -37,12 +37,11 @@
 							<form action="#" th:action="@{/enderecos/save}" th:object="${endereco}" method="post">
 								<input type="hidden" th:field="*{codigo}" />
 								<input type="hidden" name="pessoa.codigo" th:value="${codigoPessoa}" />
-								
+
 								<div class="mb-3">
 									<label for="cep" class="form-label">CEP</label>
-									<input type="text" th:field="*{cep}" id="cep" placeholder="CEP"
-										class="form-control" required
-										th:classappend="${#fields.hasErrors('cep') ? 'is-invalid' : ''}" />
+									<input type="text" th:field="*{cep}" id="cep" placeholder="CEP" class="form-control"
+										required th:classappend="${#fields.hasErrors('cep') ? 'is-invalid' : ''}" />
 									<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}"
 										class="text-danger"></span>
 								</div>
@@ -146,6 +145,55 @@
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 	<script src="/js/scripts.js"></script>
+	<script>
+		const cep = document.getElementById('cep');
+		const logradouro = document.getElementById('logradouro');
+		const bairro = document.getElementById('bairro');
+		const municipio = document.getElementById('municipio');
+		const estado = document.getElementById('estado');
+
+		cep.addEventListener('change', () => {
+			fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
+				.then(res => res.json())
+				.then(res => {
+					if (res.logradouro) {
+						logradouro.value = res.logradouro;
+						logradouro.readOnly = true;
+					} else {
+						logradouro.value = "";
+						logradouro.readOnly = false;
+					}
+
+					if (res.bairro) {
+						bairro.value = res.bairro;
+						bairro.readOnly = true;
+					} else {
+						bairro.value = "";
+						bairro.readOnly = false;
+					}
+
+					municipio.value = res.localidade;
+					municipio.readOnly = true;
+
+					estado.value = res.uf;
+					estado.readOnly = true;
+
+				})
+				.catch(err => {
+					logradouro.value = "";
+					logradouro.readOnly = false;
+
+					bairro.value = "";
+					bairro.readOnly = false;
+
+					municipio.value = "";
+					municipio.readOnly = false;
+
+					estado.value = "";
+					estado.readOnly = false;
+				})
+		})
+	</script>
 </body>
 
 </html>

@@ -1,0 +1,4 @@
+input[readonly] {
+	background-color: var(--bs-secondary-bg);
+	opacity: 1;
+}
