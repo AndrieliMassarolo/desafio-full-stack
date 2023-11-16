@@ -20,7 +20,7 @@ public class PessoaController {
 	@Autowired
 	private PessoaService pessoaService;
 
-	@GetMapping("/index")
+	@GetMapping({"/", "/index"})
 	public String showPessoaList(Model model) {
 		List<Pessoa> pessoas = pessoaService.findAll();
 		model.addAttribute("pessoas", pessoas);

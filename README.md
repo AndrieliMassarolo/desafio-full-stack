@@ -49,3 +49,24 @@ Para auxiliar no entendimento, elaboramos um diagrama de classes simples contend
 - Sentido e coerência nas respostas aos questionamentos na entrevista de apresentação do desafio realizada pelo candidato.
 
 **Não esqueça de documentar o processo necessário para rodar a aplicação.**
+
+## EXECUÇÃO
+
+Para executar o desafio basta rodar o seguinte comando:
+
+```
+docker-compose up --build
+```
+
+A aplicação estará disponível no endereço http://localhost:8080.
+
+Login:
+
+- usuário: admin
+- senha: admin
+
+### Suposições:
+Todos os campos são de preenchimento obrigatório.
+
+
+
