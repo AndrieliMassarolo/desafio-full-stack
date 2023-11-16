@@ -180,6 +180,8 @@
 
 				})
 				.catch(err => {
+					cep.value = "";
+					
 					logradouro.value = "";
 					logradouro.readOnly = false;
 

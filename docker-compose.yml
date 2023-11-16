@@ -13,14 +13,14 @@ services:
     ports:
       - "3306:3306"
 
-  desafio-service:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - '8080:8080'
-    depends_on:
-      - 'mysql'      
+#  desafio-service:
+#    build: 
+#      context: .
+#      dockerfile: Dockerfile
+#    restart: always
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=prod
+#    ports:
+#      - '8080:8080'
+#    depends_on:
+#      - 'mysql'      
